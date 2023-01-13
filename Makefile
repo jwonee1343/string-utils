@@ -1,10 +1,11 @@
 CC := gcc
 
 SRCS += test/main.c
-SRCS += string.c
+SRCS += str.c
 INCS += .
 
 CFLAGS += -Wall
+CFLAGS += -Wformat=0
 ifdef DEBUG
 CFLAGS += -g
 endif
