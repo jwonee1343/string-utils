@@ -15,7 +15,10 @@ int main(int argc, char *argv[])
 		printf("str_len() -> %u\n", str_len(buff));
 		printf("str_is_int() -> %s\n", str_is_int(buff) ? "true" : "false");
 		printf("str_to_int() -> %lld\n", str_to_int(buff));
-		
+		if (str_is_int(buff)) {
+			printf("int_to_str() -> len = %d, s = %s\n", int_to_str(str_to_int(buff), temp), temp);
+		}
+
 		printf("compare: ");
 		scanf("%s", temp);
 		printf("str_equal() -> %s\n", str_equal(buff, temp) ? "true" : "false");
@@ -27,6 +30,7 @@ int main(int argc, char *argv[])
 		for (s = str_split(buff, delim); s && *s; s = str_split(s, delim)) {
 			printf("str_split() -> %s\n", s);
 		}
+		
 	}
 
 	return 0;

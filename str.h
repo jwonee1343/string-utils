@@ -15,6 +15,7 @@ uint32_t 	str_copy(const char *from, char to[]);
 char *		str_split(char *s, char delim);
 bool 		str_is_int(const char *s);
 int64_t		str_to_int(const char *s);
+uint32_t	int_to_str(int64_t num, char s[]);
 
 #ifdef __cplusplus
 }

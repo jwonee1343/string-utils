@@ -125,3 +125,26 @@ int64_t str_to_int(const char *s)
 	return num;
 }
 
+uint32_t int_to_str(int64_t num, char s[])
+{
+	uint32_t len = 0;
+	int64_t div = 1;
+
+	if (num < 0) {
+		s[len++] = '-';
+		num *= -1;
+	}
+ 
+	while (num / div > 9) {
+		div *= 10;
+	}
+
+	while (div > 0) {
+		s[len++] = num / div + '0';
+		num %= div;
+		div /= 10;
+	}
+	s[len++] = '\0';
+
+	return len;
+}
