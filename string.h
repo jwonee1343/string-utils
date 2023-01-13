@@ -1,6 +1,5 @@
-
-#ifndef __STR_H
-#define __STR_H
+#ifndef __STRING_H
+#define __STRING_H
 
 #ifdef __cplusplus
 extern "C"
@@ -10,17 +9,15 @@ extern "C"
 #include <stdint.h>
 #include <stdbool.h>
 
-uint32_t	string_length(const char *string);
-bool		string_equal(const char *string1, const char *string2);
+uint32_t	string_length(const char *s);
+bool		string_equal(const char *s1, const char *s2);
 uint32_t	string_copy(const char *from, char to[]);
-char *		string_split(char string[], char delimiter);
-int64_t 	string_to_int(const char *string);
-
-int64_t str_to_int(const char *s);
-uint32_t int_to_str(int64_t i, char s[]);
+char *		string_split(char s[], char delim);
+uint32_t	string_to_uint(const char *s);
+int64_t 	string_to_int(const char *s);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __STR_H
+#endif // __STRING_H
