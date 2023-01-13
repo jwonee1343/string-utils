@@ -111,18 +111,20 @@ bool str_is_int(const char *s)
 int64_t str_to_int(const char *s)
 {
 	int64_t num = 0;
+	bool ne = false;
 
 	if (*s == '-') {
-		return -str_to_int(s + 1);
+		ne = true;
+		s++;
 	}
 
-	while (*s) {
+	while ('0' <= *s && *s <= '9') {
 		num *= 10;
 		num += *s - '0';
 		s++;
 	}
 
-	return num;
+	return ne ? -num : num;
 }
 
 uint32_t int_to_str(int64_t num, char s[])
