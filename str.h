@@ -1,3 +1,8 @@
+// UTF-8 encoding
+/**
+ * @brief	문자열을 처리하기 위한 간단한 함수들 선언
+ * @author	Jaewon Choi <jwonee1343@gmail.com>
+ */
 #ifndef __STR_H
 #define __STR_H
 
