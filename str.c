@@ -146,7 +146,7 @@ uint32_t int_to_str(int64_t num, char s[])
 		num %= div;
 		div /= 10;
 	}
-	s[len++] = '\0';
+	s[len] = '\0';
 
 	return len;
 }
