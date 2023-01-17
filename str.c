@@ -150,3 +150,58 @@ uint32_t int_to_str(int64_t num, char s[])
 
 	return len;
 }
+
+
+/**
+ * @brief	문자열의 내용이 16진수인지 확인하는 함수
+ * @param	s	문자열
+ * @return	true = 문자열 내용이 16진수임. false = 16진수가 아님
+ */
+bool str_is_hex(const char *s)
+{
+	while (*s) {
+		if (!(*s >= '0' && *s <= '9') ||
+			! (*s >= 'a' && *s <= 'f') ||
+			! (*s >= 'A' && *s <= 'F')) {
+			return false;
+		}
+		s++;
+	}
+
+	return true;
+}
+
+/**
+ * @brief	문자를 16진수 부호 없는 정수로 변환하는 함수
+ * @param	ch	문자
+ * @return	변환한 부호없는 정수
+ */
+static inline uint8_t char_to_hex(char ch)
+{
+	if (ch >= '0' && ch <= '9') {
+		return (ch - '0') & 0xf;
+	} else if (ch >= 'a' && ch <= 'f') {
+		return (ch - 'a' + 0xa) & 0xf;
+	} else if (ch >= 'A' && ch <= 'F') {
+		return (ch - 'A' + 0xa) & 0xf;
+	} else {
+		return 0;
+	}
+}
+
+/**
+ * @brief	문자열의 내용을 16진수 부호 없는 정수로 변환하는 함수
+ * @param	s	문자열
+ * @return	변환한 부호없는 정수
+ */
+uint32_t str_to_hex(const char *s, uint8_t bytes[])
+{
+	uint32_t len = 0;
+
+	for (len = 0; s[len]; len++) {
+		bytes[len / 2] <<= 4;
+		bytes[len / 2] = char_to_hex(s[len]);
+	}
+
+	return len;
+}

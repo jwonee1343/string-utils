@@ -1,6 +1,9 @@
 CC := gcc
 
-SRCS += test/main.c
+APP += test_str 
+APP += test_char
+
+SRCS += char.c
 SRCS += str.c
 INCS += .
 
@@ -10,9 +13,11 @@ ifdef DEBUG
 CFLAGS += -g
 endif
 
-default: $(SRCS:%.c=obj/%.o)
+default: $(APP)
+
+$(APP): $(SRCS:%.c=obj/%.o)
 	@mkdir -p bin
-	$(CC) -o bin/test $? $(INCS:%=-I%) $(CFLAGS)
+	$(CC) -o bin/$@ test/$@.c $? $(INCS:%=-I%) $(CFLAGS)
 
 obj/%.o: %.c
 	@mkdir -p $(dir $@)
@@ -20,5 +25,5 @@ obj/%.o: %.c
 
 clean:
 	rm -f $(SRCS:%.c=obj/%.o)
-	rm -f bin/test
+	rm -f $(APP:%=bin/%)
 
