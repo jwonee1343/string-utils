@@ -1,9 +1,9 @@
 CC := gcc
 
 APP += test_str 
-APP += test_char
+APP += test_ch
 
-SRCS += char.c
+SRCS += ch.c
 SRCS += str.c
 INCS += .
 

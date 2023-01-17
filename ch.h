@@ -1,5 +1,10 @@
-#ifndef __CHAR_H
-#define __CHAR_H
+// UTF-8 Encoding
+/**
+ * @author	Jaewon Choi <jwonee1343@gmail.com>
+ * @brief	문자를 변환 또는 문자로 변환하기 위한 함수들을 선언
+ */
+#ifndef __CH_H
+#define __CH_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,4 +26,4 @@ char	hex_tochar(uint8_t nib, bool upper);
 }
 #endif 
 
-#endif // __CHAR_H
+#endif // __CH_H
